@@ -1,6 +1,7 @@
 from upload_elastic import * 
 from search import *
 import sys
+from costum_search import *
 
 es = Elasticsearch(['https://localhost:9200/'], ssl_assert_fingerprint="5d62e0cf4920a91659a61a9ad0ac417c02161538a931ec881f16cc842ce88b3d",basic_auth=("elastic", "HYyElLskPkbcjmpiIskE"))
 
@@ -64,6 +65,16 @@ def main():
             else: 
                 sys.exit("thanks for using our Cluster")
 
+        elif(epilogi=='3'):
+            y=costum_search()
+
+            print(" want you to search for something else?")
+            ing2=str(input('yes or no'))
+            if(ing2=='y' or ing2=='yes'):
+                main()
+
+            else:
+                sys.exit("thanks for using our Cluster")
 
         else:
             sys.exit("thanks for using our Cluster")
