@@ -11,7 +11,7 @@ requestHeaders = {'content-type': 'application/json'}
 def metric1(x):
     return x[0]*0.5 + x[1]*0.25 + x[2]*0.25
 
-es = Elasticsearch(['https://localhost:9200/'], ssl_assert_fingerprint="5d62e0cf4920a91659a61a9ad0ac417c02161538a931ec881f16cc842ce88b3d",basic_auth=("elastic", "HYyElLskPkbcjmpiIskE"))
+es = Elasticsearch(['https://localhost:9200/'], ssl_assert_fingerprint="090d01c3894ea9e5de046d07100f6af34287c8c69955fdc1e9b394ea61b6695f",basic_auth=("elastic", "Xh7dY1eDHw6YqrsH+h+0"))
 
 def costum_search():
     books= pd.DataFrame()
