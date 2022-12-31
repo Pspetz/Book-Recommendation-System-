@@ -34,12 +34,12 @@ book1_list=list()
 book_list = list()
 rating_list=list()
 def searcher(url,url1):
-    es = Elasticsearch(['https://localhost:9200/'], ssl_assert_fingerprint="5d62e0cf4920a91659a61a9ad0ac417c02161538a931ec881f16cc842ce88b3d",basic_auth=("elastic", "HYyElLskPkbcjmpiIskE"))
+    es = Elasticsearch(['https://localhost:9200/'], ssl_assert_fingerprint="5d62e0cf4920a91659a61a9ad0ac417c02161538a931ec881f16cc842ce88b3d",basic_auth=("elastic", "Xh7dY1eDHw6YqrsH+h+0"))
     #es.indices.refresh(index="k") 
     my_query = search_query() #INSERT id_book.
     my_query1 = search_query1()
-    results = requests.get(url, data=json.dumps(my_query), verify=False,auth=("elastic", "HYyElLskPkbcjmpiIskE"),headers=requestHeaders) #REQUEST FOR RESULTS
-    results1 = requests.get(url1, data=json.dumps(my_query1), verify=False,auth=("elastic", "HYyElLskPkbcjmpiIskE"),headers=requestHeaders) #REQUEST FOR RESULTS
+    results = requests.get(url, data=json.dumps(my_query), verify=False,auth=("elastic", "Xh7dY1eDHw6YqrsH+h+0"),headers=requestHeaders) #REQUEST FOR RESULTS
+    results1 = requests.get(url1, data=json.dumps(my_query1), verify=False,auth=("elastic", "Xh7dY1eDHw6YqrsH+h+0"),headers=requestHeaders) #REQUEST FOR RESULTS
 
     #print(results)
     data =results.json()
