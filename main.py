@@ -3,6 +3,7 @@ from search import *
 import sys
 from costum_search import *
 from kmeans_search import *
+from kmeans_search1 import *
 
 es = Elasticsearch(['https://localhost:9200/'], ssl_assert_fingerprint="090d01c3894ea9e5de046d07100f6af34287c8c69955fdc1e9b394ea61b6695f",basic_auth=("elastic", "Xh7dY1eDHw6YqrsH+h+0"))
 
@@ -79,24 +80,47 @@ def main():
                 sys.exit("thanks for using our Cluster")
 
         elif(epilogi =='4'):
-            up = input(str('want you to upload kmeans data first?'))
+            up = input(str('want you to upload kmeans data and clustering data?'))
             if(up == 'yes' or up =='y'):
-                print('first, we need to upload the new data..')
-                kmeans_index1 = input(str('give a string value for booking upload:'))
-                kmeans_index2 = input(str('give a string value for rating upload:'))
-                if (len(kmeans_index1)!=0 and len(kmeans_index2)):
-                    upload_Books1(kmeans_index1)
-                    upload_ratings1(kmeans_index2)
+                cluster = input('have you already create clustered data?')
+                if(cluster == 'yes' or cluster == 'y'):
+                    print('first, we need to upload the new data..')
+                    #print('creating new csv for books and ratings..')
+                    kmeans_index1 = input(str('give a string value for booking upload:'))
+                    kmeans_index2 = input(str('give a string value for rating upload:'))
+                    if (len(kmeans_index1)!=0 and len(kmeans_index2)):
+                        upload_Books1(kmeans_index1)
+                        upload_ratings1(kmeans_index2)
 
-                    print("searching for...?")
+                        print("searching for...?")
 
-                    search_kmeans=str(input('yes or no:'))
+                        search_kmeans=str(input('yes or no:'))
 
-                    if(search_kmeans=='y' or search_kmeans=='yes'):
-                        x=searcher1()
+                        if(search_kmeans=='y' or search_kmeans=='yes'):
+                            x=searcher1()
 
-                    else: 
-                        sys.exit("thanks for using our Cluster")
+                        else: 
+                            sys.exit("thanks for using our Cluster")
+                else:
+                    print('first, we need to upload the new data..')
+                    print('creating new csv for books and ratings..')
+                    kmeans_upload()
+                    kmeans_index1 = input(str('give a string value for booking upload:'))
+                    kmeans_index2 = input(str('give a string value for rating upload:'))
+                    if (len(kmeans_index1)!=0 and len(kmeans_index2)):
+                        upload_Books1(kmeans_index1)
+                        upload_ratings1(kmeans_index2)
+
+                        print("searching for...?")
+
+                        search_kmeans=str(input('yes or no:'))
+
+                        if(search_kmeans=='y' or search_kmeans=='yes'):
+                            x=searcher1()
+
+                        else: 
+                            sys.exit("thanks for using our Cluster")
+
             else:
                 print("searching for...?")
 
