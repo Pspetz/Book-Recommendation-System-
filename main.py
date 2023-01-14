@@ -2,8 +2,10 @@ from upload_elastic import *
 from search import *
 import sys
 from costum_search import *
-from kmeans_search import *
-from kmeans_search1 import *
+#from kmeans_search import *
+#from kmeans_clustering import *
+from kmeans_search_test import *
+from kmeans_test import *
 
 es = Elasticsearch(['https://localhost:9200/'], ssl_assert_fingerprint="090d01c3894ea9e5de046d07100f6af34287c8c69955fdc1e9b394ea61b6695f",basic_auth=("elastic", "Xh7dY1eDHw6YqrsH+h+0"))
 
