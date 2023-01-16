@@ -6,6 +6,7 @@ from costum_search import *
 #from kmeans_clustering import *
 from kmeans_search_test import *
 from kmeans_test import *
+import os
 
 es = Elasticsearch(['https://localhost:9200/'], ssl_assert_fingerprint="090d01c3894ea9e5de046d07100f6af34287c8c69955fdc1e9b394ea61b6695f",basic_auth=("elastic", "Xh7dY1eDHw6YqrsH+h+0"))
 
@@ -17,7 +18,8 @@ def menu():
     print("2------>search data------\n")
     print("3------>costum search data------\n")
     print("4------>kmeans_search data------\n")
-    print("5------>exit------")
+    print("5------>Predict ratings----\n")
+    print("6------>exit------")
 
 
     choise = input(str("choose a selection: \n"))
@@ -49,7 +51,7 @@ def main():
                     main()
 
                 else: 
-                    sys.exit("thanks for using our Cluster")
+                    sys.exit("thanks for using our Search engine")
 
 
 
@@ -68,7 +70,7 @@ def main():
                 main()
 
             else: 
-                sys.exit("thanks for using our Cluster")
+                sys.exit("thanks for using our Search engine")
 
         elif(epilogi=='3'):
             y=costum_search()
@@ -79,7 +81,7 @@ def main():
                 main()
 
             else:
-                sys.exit("thanks for using our Cluster")
+                sys.exit("thanks for using our Search engine")
 
         elif(epilogi =='4'):
             up = input(str('want you to upload kmeans data and clustering data?'))
@@ -102,7 +104,7 @@ def main():
                             x=searcher1()
 
                         else: 
-                            sys.exit("thanks for using our Cluster")
+                            sys.exit("thanks for using our Search engine")
                 else:
                     print('first, we need to upload the new data..')
                     print('creating new csv for books and ratings..')
@@ -121,7 +123,7 @@ def main():
                             x=searcher1()
 
                         else: 
-                            sys.exit("thanks for using our Cluster")
+                            sys.exit("thanks for using our Search engine")
 
             else:
                 print("searching for...?")
@@ -130,13 +132,19 @@ def main():
 
                 if(search_kmeans=='y' or search_kmeans=='yes'):
                     x=searcher1()
+                    sys.exit("thanks for using our Search engine")
 
                 else:
-                    sys.exit("thanks for using our Cluster")
+                    sys.exit("thanks for using our Search engine")
 
         
+
+        elif(epilogi=='5'):
+            os.system('python3 neural.py')
+
+
         else:
-            sys.exit("thanks for using our Cluster")
+            sys.exit("thanks for using our Search engine")
 
 
 
